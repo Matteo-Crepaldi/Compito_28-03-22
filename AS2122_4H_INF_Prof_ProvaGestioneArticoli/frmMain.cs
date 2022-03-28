@@ -52,7 +52,7 @@ namespace AS2122_4H_INF_Prof_ProvaGestioneArticoli
         private int GetID()
         {
             if (articoli.Count == 0) return 0;
-            else return articoli[articoli.Count].Codice + 1;
+            else return articoli[articoli.Count - 1].Codice + 1;
         }
 
         private void btnVisualizza_Click(object sender, EventArgs e)
@@ -76,7 +76,20 @@ namespace AS2122_4H_INF_Prof_ProvaGestioneArticoli
             int index = lstElenco.FindString(curItem);
 
             // TODO: (3) aggiungere visualizzazione dettaglio articolo nelle label
-            // ... lblDescrizione.Text = articoli[index].Descrizione;
+            if(index != -1)
+            {
+                Articolo art = articoli[index];
+
+                lblDescrizione.Text = art.Descrizione;
+                lblPrezzo.Text = art.Prezzo.ToString();
+                lblUnitaMisura.Text = art.UnitaMisura;
+            }
+            else
+            {
+                lblDescrizione.Text = "...";
+                lblPrezzo.Text = "...";
+                lblUnitaMisura.Text = "...";
+            }
         }
     }
 }
