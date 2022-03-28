@@ -47,7 +47,7 @@ namespace AS2122_4H_INF_Prof_ProvaGestioneArticoli
                 catch { prezzo = -1; }
 
                 descrizione = txtDescrizione.Text;
-                misura = cmbUnitaMisura.SelectedText;
+                misura = cmbUnitaMisura.SelectedItem.ToString();
 
                 if(prezzo  > 0)
                 {
